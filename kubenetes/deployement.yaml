@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinyfastapi-deployment
+  labels:
+    app: tinyfastapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tinyfastapi
+  template:
+    metadata:
+      labels:
+        app: tinyfastapi
+    spec:
+      containers:
+      - name: tinyfastapi
+        image: jbdu4493/tinyfastapi:latest
+        ports:
+        - containerPort: 8002
