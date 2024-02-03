@@ -6,4 +6,4 @@ COPY . /app/src
 
 RUN apt-get update && apt-get install python3.11 python3-pip -y && pip install -r requirements.txt
 
-CMD [ "uvicorn" "app:app" "--port 8002" ]
+CMD [ "uvicorn", "app:app", "--port" ,"8002", "--host", "0.0.0.0"]

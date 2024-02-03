@@ -5,7 +5,7 @@ metadata:
   labels:
     app: tinyfastapi
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: tinyfastapi
@@ -15,7 +15,8 @@ spec:
         app: tinyfastapi
     spec:
       containers:
-      - name: tinyfastapi
-        image: jbdu4493/tinyfastapi:latest
+      - image: recofilmsmlopsoct2023/tinyfastapi:latest
+        name: tinyfastapi
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8002
