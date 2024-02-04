@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deployment
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - image: grafana/grafana
+        name: grafana
+        volumeMounts:
+        - mountPath: /var/lib/grafana
+          name: grafana-volume
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 3000
+      volumes:
+      - name: grafana-volume
+        emptyDir:
+          sizeLimit: 500Mi

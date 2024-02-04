@@ -22,8 +22,10 @@ spec:
         - containerPort: 9090
         volumeMounts:
         - name: config-volume
-          mountPath: /etc/prometheus/
+          mountPath: "/etc/prometheus/"
         command:
+        - "/bin/prometheus"
+        args:
         - "--config.file=/etc/prometheus/prometheus.yml"
       volumes:
       - name: config-volume
